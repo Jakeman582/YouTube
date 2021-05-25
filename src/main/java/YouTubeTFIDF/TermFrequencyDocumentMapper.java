@@ -1,4 +1,4 @@
-package YouTube_TF_IDF;
+package YouTubeTFIDF;
 
 public class TermFrequencyDocumentMapper {
 
