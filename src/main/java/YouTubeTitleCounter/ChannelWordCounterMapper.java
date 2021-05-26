@@ -13,7 +13,6 @@ public class ChannelWordCounterMapper extends Mapper<Text, Text, Text, Text> {
 		// Make sure to get each word of the title
 		String[] videoData = value.toString().split(" \\| ", DATA_ITEMS);
 		String[] words = videoData[DATA_ITEMS - 1].split("[\\s_/]+");
-		//String[] words = videoData[DATA_ITEMS - 1].split("[\\s_/\\x00-\\x7f]+");
 		
 		// For each word
 		for(String word : words) {
