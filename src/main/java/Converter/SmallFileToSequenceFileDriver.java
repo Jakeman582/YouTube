@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class SmallFileToSequenceFileConverter extends Configured implements Tool{
+public class SmallFileToSequenceFileDriver extends Configured implements Tool{
 	
 	@Override
 	public int run(String[] args) throws Exception {
@@ -23,7 +23,7 @@ public class SmallFileToSequenceFileConverter extends Configured implements Tool
 		
 		Configuration config = new Configuration();
 		Job job = Job.getInstance(config);
-		job.setJarByClass(SmallFileToSequenceFileConverter.class);
+		job.setJarByClass(SmallFileToSequenceFileDriver.class);
 		job.setJobName("Small file to SequenceFile Converter");
 		
 		FileInputFormat.addInputPath(job, new Path(args[0]));
@@ -44,7 +44,7 @@ public class SmallFileToSequenceFileConverter extends Configured implements Tool
 	}
 	
 	public static void main(String[] args) throws Exception {
-		System.exit(ToolRunner.run(new SmallFileToSequenceFileConverter(), args));
+		System.exit(ToolRunner.run(new SmallFileToSequenceFileDriver(), args));
 	}
 
 }
