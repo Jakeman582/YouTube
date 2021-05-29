@@ -12,12 +12,16 @@ public class DocumentTermCountReducer extends Reducer<Text, Text, Text, Text>{
 	
 	public void reduce(Text document, Iterable<Text> counts, Context context) throws IOException, InterruptedException {
 		
+		// Count the number of words used in every video title uploaded
+		// by the YouTuber
 		int sum = 0;
 		for(Text count : counts) {
 			String[] parts = count.toString().split("\t");
 			sum += Integer.parseInt(parts[COUNT]);
 		}
 		
+		// For every (term, document) pair, output the individual term's count 
+		// and the total number of words used in the YouTuber's video titles
 		for(Text count : counts) {
 			String[] parts = count.toString().split("\t");
 			context.write(
