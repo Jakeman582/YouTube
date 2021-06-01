@@ -11,6 +11,18 @@ import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * A driver for converting a set of files in a directory into a larger 
+ * SequenceFile. All files have the following format:
+ * (views\tcomments\likes\tdislikes\ttitle)
+ * <p> 
+ * Every file has the name format YouTuber.txt
+ * <p>
+ * The SequenceFile will have the following format:
+ * (YouTuber, views\tcomments\likes\tdislikes\ttitle)
+ * 
+ * @author jacobhiance
+ */
 public class SmallFileToSequenceFileDriver extends Configured implements Tool{
 	
 	@Override

@@ -16,6 +16,13 @@ import org.apache.hadoop.util.ToolRunner;
 
 import Utilities.Video;
 
+/**
+ * A driver to filter out which video titles have metrics better than 
+ * the respective YouTuber's average metrics.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class Filter extends Configured implements Tool {
 
 	@Override

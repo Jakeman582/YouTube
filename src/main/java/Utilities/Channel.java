@@ -11,7 +11,7 @@ import org.apache.hadoop.io.*;
  * the video), average number of views, average number of comments, and the 
  * average like/dislike ratio.
  * 
- * @author Jacob Hiance
+ * @author jacobhiance
  *
  */
 public class Channel implements WritableComparable<Channel>{

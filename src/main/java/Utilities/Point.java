@@ -3,18 +3,23 @@ package Utilities;
 import java.util.ArrayList;
 
 /**
+ * A point representing a YouTuber and their word vectors in a k-means 
+ * clustering analysis.
  * 
  * @author cloudera
  *
  */
 public class Point {
 	
+	// Accessing each part of the array
 	private static final int LABEL_INDEX = 0;
 	private static final int COORDINATES_INDEX = 1;
 	
+	// Delimiters for parsing strings
 	public static final String LABEL_DELIMITER = "\t";
 	public static final String COORDINATE_DELIMITER = " ";
 	
+	/* Getters */
 	public static String getLabelString(String line) {
 		return line.split(Point.LABEL_DELIMITER)[Point.LABEL_INDEX];
 	}
@@ -41,6 +46,7 @@ public class Point {
 		return list;
 	}
 	
+	/* String representation of this point */
 	public static String stringifyCoordinateList(ArrayList<Double> coordinateList) {
 		StringBuilder coordinateString = new StringBuilder();
 		for(int index = 0; index < coordinateList.size(); index++) {

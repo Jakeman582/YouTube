@@ -8,6 +8,7 @@ import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
+/* This is the Map job for the SequenceFile converter */
 public class SmallFileToSequenceFileMapper extends Mapper<LongWritable, Text, Text, Text> {
 	
 	// We want to get the YouTuber's/file name to use as a key

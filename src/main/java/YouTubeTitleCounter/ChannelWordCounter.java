@@ -11,6 +11,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * A driver for counting the number of each word used in the 
+ * YouTubers' video titles with respect to what words have been used 
+ * by all YouTubers.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class ChannelWordCounter extends Configured implements Tool {
 
 	@Override

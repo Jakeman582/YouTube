@@ -12,6 +12,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * A driver for listing all words used in every video title of 
+ * every YouTuber. Having a list of words will be useful when 
+ * constructing "word count vectors" for every YouTuber.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class TitleWordLister extends Configured implements Tool{
 
 	@Override

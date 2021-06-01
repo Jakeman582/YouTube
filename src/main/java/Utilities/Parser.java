@@ -2,10 +2,19 @@ package Utilities;
 
 import org.apache.hadoop.io.Text;
 
+/**
+ * A collection of static methods for parsing out YouTube video 
+ * metadata.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class Parser {
 	
+	// There are 5 pieces of metadata for each YouTube video
 	private static final int DATA_ITEMS = 5;
 	
+	/* Parse out the video titles from the input SequenceFile */
 	public static String[] parseTitle(Text input) {
 		
 		// Get the words in the video title

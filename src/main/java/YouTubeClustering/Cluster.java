@@ -18,6 +18,13 @@ import Utilities.ClusterManager;
 import Utilities.HDFSReader;
 import Utilities.Point;
 
+/**
+ * A driver implementing a set of Hadoop MapReduce jobs for conducting 
+ * a k-means clustering analysis.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class Cluster extends Configured implements Tool{
 	
 	@Override

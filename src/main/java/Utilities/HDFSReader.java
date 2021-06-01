@@ -12,11 +12,16 @@ import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
+/**
+ * A collection of static methods for interacting with the HDFS 
+ * file system, including reading and writing files in HDFS.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class HDFSReader {
 	
-	/**
-	 * 
-	 */
+	/* Reading the lines of a cache file */
 	public static ArrayList<String> readCacheFile(Path pathName) {
 		
 		// Make an ArrayList of the lines to return to the caller
@@ -47,9 +52,7 @@ public class HDFSReader {
 		
 	}
 	
-	/**
-	 * 
-	 */
+	/* Read every line of an HDFS file */
 	public static ArrayList<String> readFile(String fileName, Configuration config) {
 		
 		// Make an ArrayList to return to the caller

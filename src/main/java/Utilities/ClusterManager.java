@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 import org.apache.hadoop.conf.Configuration;
 
+/**
+ * A collection of static methods used for configuring a Hadoop MapReduce 
+ * k-means clustering analysis
+ * 
+ * @author jacobhiance
+ *
+ */
 public class ClusterManager {
 	
-	/**
-	 * 
-	 */
+	/* Initialize a set of cluster centers */
 	public static ArrayList<Integer> getInitialCenters(ArrayList<String> points, int numberOfClusters) {
 		
 		// Create an ArrayList to return the selected indices
@@ -28,9 +33,7 @@ public class ClusterManager {
 		
 	}
 	
-	/**
-	 * 
-	 */
+	/* Save the cluster centers to the passed in configuration */
 	public static void writeClusterCenters(ArrayList<String> points, ArrayList<Integer> indices, Configuration config) {
 		
 		for(int index = 0; index < indices.size(); index++) {

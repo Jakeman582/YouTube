@@ -1,6 +1,5 @@
 package Utilities;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,12 +9,20 @@ import java.util.Set;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 
+/**
+ * An object that can store the individual video metadata for each 
+ * video in the SequenceFile storing all collected YouTube video 
+ * data.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class ChannelParser {
 	
 	// For fast lookup, we store each Channel into a Map
 	private Map<String, Channel> channelMap;
 	
-	// Constructors
+	/* Constructors */
 	public ChannelParser() {
 		channelMap = new HashMap<String, Channel>();
 	}
@@ -25,6 +32,7 @@ public class ChannelParser {
 		initialize(path);
 	}
 	
+	/* Private field initializer */
 	public void initialize(Path path) {
 		
 		try {
@@ -53,7 +61,7 @@ public class ChannelParser {
 		}
 	}
 	
-	// Make sure we can get each part of a channel
+	/* Getters */
 	public DoubleWritable getAverageViews(String channelName) {
 		return channelMap.get(channelName).getAverageViews();
 	}
@@ -66,7 +74,7 @@ public class ChannelParser {
 		return channelMap.get(channelName).getAverageRatio();
 	}
 	
-	/**/
+	/* Get every YouTuber */
 	public Set<String> getKeys() {
 		return channelMap.keySet();
 	}

@@ -10,6 +10,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * A driver for performing a TF-IDF analysis on a YouTuber's video 
+ * titles.
+ * 
+ * @author jacobhiance
+ *
+ */
 public class Driver extends Configured implements Tool {
 
 	@Override
