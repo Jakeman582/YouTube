@@ -1,3 +1,3 @@
 ## YouTube
 
-This is the initial README documentation for the repository. 
+Python scripts for collecting data from the YouTube API, and Hadoop procedures to do the data analysis
