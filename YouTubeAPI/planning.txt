@@ -1,0 +1,76 @@
+Getting usernames
+	Perhaps spend an hour or so collecting channel usernames in a file that can be used for input
+
+
+
+
+
+
+
+
+
+Getting a channel's videos along with video statistics
+
+	0. The maximum number of elements per page of response is 50, so we'll use that
+		results_per_page = 50
+
+	1. Query the YouTube API to get a channels 'uploads' playlist
+
+		a. Supply a username (Found at the YouTube channel's URL)
+
+		b. service.channels().list(part, forUsername)
+			part - String of comma separated parts to get
+				contentDetails
+				statistics
+			forUsername - String with the channel name
+
+		e. The parts of the response:
+			items[]->contentDetails->relatedPlaylists->uploads (string)
+			items[]->statistics->videoCount (unsigned long)
+
+
+
+
+
+
+	2. Query the YouTube API to get the videos in the playlist from part 1
+		
+		video_count = items[]->statistics->videoCount
+		page_count = ceil(video_count / results_per_page)
+
+		a. Supply a playlist ID (found from the previous step)
+
+		b. service.playlistItems().list(part, playlistId, pageToken)
+			part - String of comma separated parts to get
+				snippet
+			playlistId - ID of the playlist
+			pageToken - Token specifying which page to get (initially null)
+
+		e. The parts of the response
+			items->snippet->resourceId->videoId (string)
+			nextPageToken (string)
+
+		l. store the video IDs in memory to use to query for video statistics (comma separated string)
+
+
+
+
+
+	3. Query the YouTube API to get video details from part 2
+
+		a. Supply the video IDs (from part 2)
+
+		b. service.videos().list(part, ids, pageToken)
+			part - String of comma separated parts to get
+				snippet
+				statistics
+			ids - string of comma separated video ids (from part 2)
+			pageToken - token supplied by each successive response for next page of results
+
+		c. parts of the response we want
+			nextPageToken
+			items[]->snippet->title (string, max 100 characters, all valid UTF-8 characters except "<" and ">")
+			items[]->statistics->viewCount (unsigned long)
+			items[]->statistics->likeCount (unsigned long)
+			items[]->statistics->dislikeCount (unsigned long)
+			items[]->statistics->commentCount (unsigned long)
